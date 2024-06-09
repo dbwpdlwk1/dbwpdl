@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to the Developer Portal. A place where dreams come true.">
+    <title>Developer Portal</title>
+    <style>
+        body {
+            background-color: #000000; /* 전체 배경 색을 검정으로 변경 */
+            color: #ffffff; /* 텍스트 색상을 흰색으로 변경 */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* 페이지 높이 감소 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #0a0a23;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .hero-container {
+            position: relative;
+            overflow: hidden;
+            height: 40vh; /* 슬라이드 창 높이 감소 */
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: row;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .hero-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 3em 2em;
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* 위에서 살짝 아래로 이동 */
+            align-items: center; /* 중앙에 배치 */
+            text-align: center; /* 텍스트를 중앙 정렬 */
+            padding-top: 10vh; /* 중앙에서 약간 아래로 이동 */
+            color: #000000; /* 슬라이드 내 텍스트 색상을 검정으로 */
+        }
+
+        .hero-title {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+
+        .hero-subtitle {
+            font-size: 1em;
+            margin-bottom: 1em;
+            color: #666;
+        }
+
+        .btn {
+            background-color: #444;
+            color: #ffffff;
+            padding: 0.5em 1.5em;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .slide-btn.left {
+            left: 10px;
+        }
+
+        .slide-btn.right {
+            right: 10px;
+        }
+
+        .content {
+            padding: 1.5em;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 1.8em; /* 폰트 크기 적절하게 조정 */
+            margin-bottom: 1em;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            width: 28%;
+            padding: 1em; /* 패딩 적절하게 조정 */
+            background-color: #1c1c1c;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            text-align: left;
+            color: #ffffff;
+            box-sizing: border-box; /* 박스 크기 설정 */
+            height: 250px; /* 높이 고정 */
+        }
+
+        .feature h3 {
+            font-size: 1.5em; /* 폰트 크기 적절하게 조정 */
+            margin-bottom: 0.5em;
+        }
+
+        .feature p {
+            font-size: 1em; /* 폰트 크기 적절하게 조정 */
+            margin-bottom: 0.5em;
+        }
+
+        .feature .icon {
+            font-size: 2em; /* 아이콘 크기 적절하게 조정 */
+            margin-bottom: 0.5em;
+        }
+
+        .notice {
+            background-color: #1c1c1c;
+            padding: 1.5em;
+            margin: 1.5em 0;
+            border-radius: 8px;
+        }
+
+        .notice h2 {
+            font-size: 1.8em; /* 폰트 크기 적절하게 조정 */
+            margin-bottom: 1em;
+        }
+
+        .notice a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            font-size: 1em; /* 폰트 크기 적절하게 조정 */
+            margin: 0.5em 0;
+        }
+
+        .notice a:hover {
+            text-decoration: underline;
+        }
+
+        .notice img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #000000; /* 푸터 배경 색상을 검정으로 변경 */
+            border-top: 1px solid #ccc;
+            margin-top: auto; /* 푸터를 페이지 하단으로 이동 */
+        }
+
+        footer p {
+            margin: 0;
+            color: #ffffff; /* 푸터 텍스트 색상을 흰색으로 변경 */
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar a {
+                margin: 5px 0;
+            }
+            .hero-slide {
+                padding-top: 5vh; /* 작은 화면에서 슬라이드 내용 위로 이동 */
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature {
+                width: 80%;
+            }
+            .notice img {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5em;
+            }
+            .hero-subtitle {
+                font-size: 0.8em;
+            }
+            .btn {
+                padding: 0.5em 1em;
+            }
+            .slide-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 1em;
+            }
+            .content h2 {
+                font-size: 1.5em;
+            }
+            .feature h3 {
+                font-size: 1.2em;
+            }
+            .feature p {
+                font-size: 0.9em;
+            }
+            .feature .icon {
+                font-size: 1.5em;
+            }
+            .notice h2 {
+                font-size: 1.2em;
+            }
+            .notice a {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <a href="#" aria-label="kakao developers">Web Gard</a>
+        </div>
+        <div>
+            <a href="#">홈</a>
+            <a href="#">소개</a>
+            <a href="#">서비스</a>
+            <a href="#">연락처</a>
+            <a href="#">회원가입</a>
+            <a href="#">로그인</a>
+        </div>
+    </nav>
+
+    <header class="hero-container">
+        <div class="hero">
+            <div class="hero-slide">
+                <h1 class="hero-title">Welcome to the website</h1>
+                <p class="hero-subtitle">A place where dreams come true</p>
+                <a href="#" class="btn">시작하기</a>
+            </div>
+            <div class="hero-slide">
+                <h1 class="hero-title">Next Title</h1>
+                <p class="hero-subtitle">Next Subtitle</p>
+                <a href="#" class="btn">Next Button</a>
+            </div>
+            <div class="hero-slide">
+                <h1 class="hero-title">Another Title</h1>
+                <p class="hero-subtitle">Another Subtitle</p>
+                <a href="#" class="btn">Another Button</a>
+            </div>
+        </div>
+        <button class="slide-btn left" onclick="plusSlides(-1)" aria-label="Previous slide">&#10094;</button>
+        <button class="slide-btn right" onclick="plusSlides(1)" aria-label="Next slide">&#10095;</button>
+    </header>
+
+    <div class="content">
+        <h2>Web Gard 특징</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🔄</div>
+                <h3>보안</h3>
+                <p>인간은 서로에게 기대어 살아가는 존재이기 때문에, 카카오는 서로 간 긍정의 상호 작용으로 함께 발전할 수 있는 상생을 추구합니다. 수많은 개발자와 함께, 개발자에 의해, 개발자를 위해 같이 성장하고 싶습니다.</p>
+                <p>#together, #winwin</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔧</div>
+                <h3>생산성</h3>
+                <p>개발자의 생산성 향상은 우리의 중요한 목표 중 하나입니다. 카카오는 개발자가 서비스의 핵심 로직에 집중해, 더 많은 가치를 창출할 수 있는 편리한 환경을 제공하고자 노력하고 있습니다.</p>
+                <p>#productivity</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔍</div>
+                <h3>메신저</h3>
+                <p>카카오는 새로운 문화를 개척하고 다양한 부가가치를 창출하는 창의적인 개발자들을 존중합니다. 모두에게 열려 있는 안전하게 정제된 기술과 서비스로, 더 나은 세상, 보다 의미 있는 사용자 가치를 함께 만들고 싶습니다.</p>
+                <p>#value, #create</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="notice">
+        <h2>공지사항</h2>
+        <a href="#">[공지] <span style="float: right;">2024.5.24</span></a>
+        <a href="#">[공지] <span style="float: right;">2024.5.23</span></a>
+        <a href="#">[공지] <span style="float: right;">2024.5.1</span></a>
+    </div>
+
+    <footer>
+        <p>&copy; 배재대학교 대학원. All rights reserved. Developed by Minseok Yu and Jai Yu.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.hero-slide');
+            slides.forEach(slide => slide.style.display = 'none');
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = 'block';
+            setTimeout(showSlides, 4000); // 4초마다 슬라이드 변경
+        }
+
+        function plusSlides(n) {
+            const slides = document.querySelectorAll('.hero-slide');
+            slides[slideIndex-1].style.display = 'none';
+            slideIndex += n;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = slides.length}
+            slides[slideIndex-1].style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlides();
+        });
+    </script>
+</body>
+</html>
