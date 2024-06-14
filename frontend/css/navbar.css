@@ -1,0 +1,283 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 상단 네비게이션 바 스타일 */
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #333 0%, #666 100%);
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.logo-container {
+    text-align: left;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.search-input {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 2px solid #444;
+    outline: none;
+    width: 300px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #888;
+    box-shadow: 0 0 5px rgba(136, 136, 136, 0.5);
+}
+
+.search-button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.search-icon {
+    color: #888;
+    font-size: 20px;
+}
+
+/* 네비게이션 바 스타일 */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #1e1e1e 0%, #444 100%);
+    font-family: 'Roboto', Arial, sans-serif;
+    position: relative;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .auth-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    right: 20px;
+}
+
+.navbar .nav-links li, .navbar .auth-links li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links li a, .navbar .auth-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.navbar .nav-links li a:hover, .navbar .auth-links li a:hover {
+    color: #ddd;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 드롭다운 메뉴 스타일 */
+.navbar .nav-links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(10px) translateX(-50%);
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444;
+    top: 100%;
+    left: 50%;
+    overflow: hidden;
+    width: 800px;
+    padding: 20px;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.navbar .nav-links .dropdown-content.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+}
+
+.navbar .nav-links .dropdown:hover .dropdown-content {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+    border: 1px solid #555;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+}
+
+.navbar .nav-links .dropdown:hover .dropbtn {
+    color: #ddd;
+}
+
+/* 드롭다운 메뉴 내부 스타일 */
+.navbar .nav-links .mega-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navbar .nav-links .mega-menu-column h3 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.navbar .nav-links .mega-menu-column a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-links .mega-menu-column a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+}
+
+/* 네비게이션 바 프로필 정보 스타일 */
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+#navbarNickname {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+/* 프로필 드롭다운 메뉴 스타일 */
+.profile-info .profile-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444;
+    top: 100%;
+    left: 0;
+    overflow: hidden;
+    width: 200px;
+    padding: 10px;
+    flex-direction: column;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.profile-info .profile-dropdown-content.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+}
+
+.profile-info:hover .profile-dropdown-content {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    border: 1px solid #555;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+}
+
+.profile-info:hover .dropbtn {
+    color: #ddd;
+}
+
+.profile-info .profile-dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+    display: block;
+}
+
+.profile-info .profile-dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar .nav-links, .navbar .auth-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar .nav-links.active, .navbar .auth-links.active {
+        display: flex;
+    }
+
+    .navbar .hamburger-menu {
+        display: block;
+    }
+
+    .navbar .nav-links li, .navbar .auth-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .nav-links li a, .navbar .auth-links li a {
+        padding: 15px 0;
+        border-bottom: 1px solid #444;
+    }
+
+    .navbar .nav-links .dropdown-content, .profile-info .profile-dropdown-content {
+        width: 100%;
+        left: 0;
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Board</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/questions.css">
+</head>
+<body>
+    <header class="header-hero-container">
+        <nav class="top-navbar">
+            <div class="logo-container">
+                <a href="#" class="logo">Developer Portal</a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search...">
+                <button class="search-button">
+                    <i class="search-icon">🔍</i>
+                </button>
+            </div>
+        </nav>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Dropdown</a>
+                    <div class="dropdown-content">
+                        <div class="mega-menu-column">
+                            <h3>Column 1</h3>
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h3>Column 2</h3>
+                            <a href="#">Link 3</a>
+                            <a href="#">Link 4</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="auth-links">
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-content" style="display: flex; flex-direction: column; align-items: flex-start;">
+        <div class="questions-container">
+            <h1>질문게시판</h1>
+            <div class="questions-list">
+                <!-- 질문 목록이 여기에 표시됩니다. -->
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <!-- 페이지 번호가 여기에 표시됩니다. -->
+    </div>
+    <footer>
+        배재대대학원
+    </footer>
+    <script src="js/questions.js"></script>
+</body>
+</html>

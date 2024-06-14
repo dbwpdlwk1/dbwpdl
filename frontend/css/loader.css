@@ -1,0 +1,37 @@
+/* loader.css */
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loading-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 1.2rem; /* 폰트 사이즈 줄이기 */
+}
+
+.loader {
+    border: 12px solid #f3f3f3; /* 로딩 아이콘 크기 줄이기 */
+    border-top: 12px solid #3498db; /* 로딩 아이콘 크기 줄이기 */
+    border-radius: 50%;
+    width: 60px; /* 로딩 아이콘 크기 줄이기 */
+    height: 60px; /* 로딩 아이콘 크기 줄이기 */
+    animation: spin 2s linear infinite;
+    margin-bottom: 10px; /* 마진 줄이기 */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,95 @@
+.questions-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    width: 100%; /* 부모 요소의 전체 너비 사용 */
+}
+
+.questions-container h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+.questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    width: 100%; /* 부모 요소의 전체 너비 사용 */
+}
+
+.question-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%; /* 전체 너비 사용 */
+    max-width: 800px; /* 최대 너비 설정 */
+    position: relative; /* 삭제 버튼 위치 조정을 위해 필요 */
+}
+
+.question-item h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.question-item p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.question-item .question-meta {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.question-item .delete-button {
+    background-color: #87CEEB; /* 연한 파랑색 */
+    color: white;
+    border: none;
+    border-radius: 20px; /* 둥근 모서리 */
+    padding: 5px 15px; /* 패딩 조정 */
+    cursor: pointer;
+    font-size: 0.9rem; /* 폰트 사이즈 조정 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* 부드러운 전환 효과 */
+    margin-top: 20px; /* 맨 밑으로 이동 */
+}
+
+.question-item .delete-button:hover {
+    background-color: #6495ED; /* 호버 시 색상 변경 */
+    transform: scale(1.05); /* 호버 시 약간 확대 */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%; /* 전체 너비 사용 */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pagination button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
+
+.pagination button.active {
+    background-color: #0056b3;
+    font-weight: bold;
+}
